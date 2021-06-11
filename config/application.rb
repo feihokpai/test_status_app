@@ -18,6 +18,7 @@ module TestStatusApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.eager_load_paths << Rails.root.join("domain")
     config.eager_load_paths << Rails.root.join("util")
   end
 end
