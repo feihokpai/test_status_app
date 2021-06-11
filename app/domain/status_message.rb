@@ -1,7 +1,7 @@
 class StatusMessage < DomainObject
   attr_reader :message, :timestamp, :application, :status, :id
 
-  def initialize( application_, status_, message_, timestamp_=Time.now, id_=0)
+  def initialize( application_, status_, message_, timestamp_=Time.now, id_=nil)
     validate_initialize( application_, timestamp_, id_)
     @id = id_
     @timestamp = timestamp_    
@@ -23,7 +23,9 @@ class StatusMessage < DomainObject
   private
 
   def validate_initialize( application_, timestamp_, id_)
-    ValidateUtil.raiseIfValueIsNotA( id_, Integer )
+    if !id_.nil?
+      ValidateUtil.raiseIfValueIsNotA( id_, Integer )
+    end
     ValidateUtil.raiseIfValueIsNotA( application_, Application )
     ValidateUtil.raiseIfValueIsNotA( timestamp_, Time )    
   end

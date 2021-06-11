@@ -1,12 +1,12 @@
 class StatusApplication < DomainObject
-  attr_reader :status
+  attr_reader :code
 
   STATUS_DOWN = 99
   STATUS_UP = 100
 
   def initialize( status_ )
     validate_initialize( status_ )
-    @status = status_
+    @code = status_
   end
 
   def self.up
