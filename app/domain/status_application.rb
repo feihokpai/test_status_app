@@ -18,21 +18,27 @@ class StatusApplication < DomainObject
     StatusApplication.new( StatusApplication::STATUS_DOWN, "DOWN" )
   end
 
+  def self.fromCode( code )
+    self.raiseIfStatusIsNotValid( code )
+    return self.down if code == STATUS_DOWN
+    return self.up if code == STATUS_UP
+  end
+
   private
 
   def validate_initialize( status_, description_ )
-    raiseIfStatusIsNotValid( status_ )
+    StatusApplication.raiseIfStatusIsNotValid( status_ )
     StringUtil.raiseIfIsEmptyOrNil( description_ )
   end
 
-  def raiseIfStatusIsNotValid( status_ )
-    if not valid_status_list().include?( status_ )
-      message = "Tried to create a Status Application with invalid code: #{status_}"
-      raise ArgumentError.new( message )
-    end
+  def self.raiseIfStatusIsNotValid( status_ )
+    ValidateUtil.raiseIfValueIsNotA( status_, Integer )
+    return if self.valid_status_list().include?( status_ )
+    message = "Tried to create a Status Application with invalid code: #{status_}"
+    raise ArgumentError.new( message )
   end
 
-  def valid_status_list
+  def self.valid_status_list
     [STATUS_UP, STATUS_DOWN]
   end
 end
