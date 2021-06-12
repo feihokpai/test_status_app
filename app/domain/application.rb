@@ -7,7 +7,7 @@ class Application < DomainObject
   end
 
   def name=(name_)
-    StringUtil.raiseIfIsEmpty( name_, "An application needs to have a name")
+    StringUtil.raiseIfIsEmptyOrNil( name_, "An application needs to have a name")
     @name = name_
   end
 

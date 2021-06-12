@@ -1,0 +1,10 @@
+<h1>Hello User</h1>
+<% for statusMessage in @statusMessageList %>
+  <div>
+    <p><%= "(#{statusMessage.timestamp}) - #{statusMessage.status.description} - #{statusMessage.message}" %></p>
+  </div>
+<% end %>
+
+<form action="new_message" method="get">
+    <input type="submit" value="New Status Message">
+</form>
