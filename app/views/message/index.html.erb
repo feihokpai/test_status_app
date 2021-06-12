@@ -1,0 +1,6 @@
+<h1>Hello User</h1>
+<% for statusMessage in @statusMessageList %>
+  <div>
+    <p><%= "#{statusMessage.status.description} - #{statusMessage.timestamp}: #{statusMessage.message}" %></p>
+  </div>
+<% end %>
