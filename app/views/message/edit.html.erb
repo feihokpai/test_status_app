@@ -1,0 +1,24 @@
+<h1>Update the status of the system</h1>
+<form action="save_message" method="post">
+    <input type="hidden" value="<%= form_authenticity_token() %>" name="authenticity_token"/>
+    <table>
+        <tr>
+            <td>Status: </td>
+            <td>
+                <select id="status" name="status_code">
+                    <option value="100">UP</option>
+                    <option value="99">DOWN</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Message: </td>
+            <td>
+                <textarea id="inputMessage" name="status_message" rows="4" cols="50" >
+                </textarea>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <input type="submit" value="Save Status Message">
+</form>
