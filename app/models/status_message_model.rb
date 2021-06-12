@@ -10,4 +10,10 @@ class StatusMessageModel < ApplicationRecord
     statusMessageModel = StatusMessageModel.new( params )
     return statusMessageModel
   end
+
+  def toDomainObject
+    application = self.application.toDomainObject()
+    statusApplication = self.statusApplication.toDomainObject()
+    StatusMessage.new( application, statusApplication, self.message, self.updated_at, self.id )
+  end
 end

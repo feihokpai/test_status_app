@@ -5,6 +5,12 @@ class ApplicationRecord < ActiveRecord::Base
     raiseNotImplemented()
   end
 
+  def toDomainObject( modelObject )
+    raiseNotImplemented()
+  end
+
+  private
+
   def raiseNotImplemented()
     raise "You are trying to call a method inherited from a interface, but not implemented"
 end
