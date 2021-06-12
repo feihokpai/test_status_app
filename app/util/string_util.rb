@@ -9,7 +9,7 @@ class StringUtil
         return Time.now().to_i().to_s()
     end
 
-    def self.raiseIfIsEmpty( value, aditionalMessage="" )
+    def self.raiseIfIsEmptyOrNil( value, aditionalMessage="" )
         ValidateUtil.raiseIfValueIsNotA( value, String )
         if value.empty?
             raise ArgumentError.new("The String is empty. #{aditionalMessage}") 
