@@ -16,5 +16,6 @@ Things you may want to cover:
 
 * After execute the "rails server" command in the console. That will start the application. You can access the application in the adress: http://localhost:3000/
 
+* To run all the tests created, execute in console "rspec -fd".
 
 
