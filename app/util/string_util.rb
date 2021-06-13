@@ -13,8 +13,13 @@ class StringUtil
 
     def self.raiseIfIsEmptyOrNil( value, aditionalMessage="" )
         ValidateUtil.raiseIfValueIsNotA( value, String )
-        if value.empty?
-            raise ArgumentError.new("The String is empty. #{aditionalMessage}") 
-        end
+        return if not(value.empty?)
+        raise ArgumentError.new("The String is empty. #{aditionalMessage}") 
+    end
+
+    def self.raiseIfIsBlankOrNil( value, aditionalMessage="" )
+        ValidateUtil.raiseIfValueIsNotA( value, String )
+        return if not( value.strip().empty? )
+        raise ArgumentError.new("The String is blank. #{aditionalMessage}") 
     end
 end
