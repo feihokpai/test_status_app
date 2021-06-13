@@ -11,7 +11,7 @@ class StatusMessage < DomainObject
   end
 
   def message=(message_)
-    ValidateUtil.raiseIfValueIsNotA( message_, String )
+    ValidateUtil.raiseIfValueIsNotNilAndIsNotA( message_, String )
     @message = message_
   end
 
